@@ -1,0 +1,4 @@
+# This is where you choose which blocks you want to be removed at the time specified in the main config file. Note that this only takes effect in the plugin’s world.
+blocks:
+- COBBLESTONE
+- BED_BLOCK

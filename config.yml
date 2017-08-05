@@ -1,0 +1,32 @@
+# FFARush by
+# Paulao17
+# ConfigFile
+# All conifigurations are only applicable in the FFARush world.
+# If the config file is missing docs, go on the website.
+
+# [Location] Lobby location, do not change it from here, use /ffarush setlobby
+lobbyloc : null
+
+# [Int] After how many ticks the tnt explodes after being placed. Default is 80.
+primedTntExplode : 80
+
+# [Int] Damage dealt by the tnt to players on explosion. Default is 4.
+tntDamage : 4
+
+# [Int] Power of the tnt. Default is 10.
+tntYield : 10
+
+# [Boolean] Wether there is block damage on explosion. Default is false.
+tntBlockDamage : false
+
+# [Boolean] Wether the leave button in the game lobby sends the player on the later specified server. Default is false.
+useBungee : false
+
+# [String] What server (in your bungee config) to send the player on leave, if the useBungee option is set to true. Default : lobby
+bungeeLobby : lobby
+
+# [String] What command the player would use to leave, if the useBungee option is set to false. Default : lobby
+leaveCmd : lobby
+
+# [Long] After how many ticks the blocks specified in the Blocks.yml are removed. Default is 600.
+blockremove : 600

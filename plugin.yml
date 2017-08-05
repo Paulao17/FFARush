@@ -1,0 +1,11 @@
+name: FFARush
+version: 0.1
+description: FFARush mini-game plugin.
+author: Paulao17
+authors: [Paulao17] 
+website: yocraft.net
+main: net.yocraft.ffarush.Main
+commands:
+  ffarush:
+    description: Base command for the plugin.
+    usage: /ffarush [args]
