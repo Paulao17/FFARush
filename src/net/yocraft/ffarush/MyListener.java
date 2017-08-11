@@ -4,6 +4,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
+import org.bukkit.command.CommandSender;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
 import org.bukkit.entity.TNTPrimed;
@@ -15,6 +16,7 @@ import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.entity.EntityDamageEvent.DamageCause;
 import org.bukkit.event.player.PlayerInteractEvent;
+import org.bukkit.event.player.PlayerJoinEvent;
 
 import net.md_5.bungee.api.ChatColor;
 
@@ -130,5 +132,11 @@ public class MyListener implements Listener {
 				}
 			}
 		}
+	}
+	
+	@EventHandler
+	public void onJoin(PlayerJoinEvent e) {
+		if (e.getPlayer().isOp())
+				Main.update.update((CommandSender)e.getPlayer());
 	}
 }

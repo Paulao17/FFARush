@@ -21,14 +21,16 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 public class Main extends JavaPlugin {
 	public static Main instance;
-	public static final String version = "0.1";
+	public static final String version = "1.0.0";
 	public static final int build = 1;
-	public static final String website = "*WEBSITE*";
+	public static final String website = "http://yocraft.net/Plugins/FFARush.html";
 	public static FileConfiguration conf;
 	public static Inventory inventory;
 	public static MemorySection armor;
 	public static Arena arena;
 	public static List<Material> blocks = new ArrayList<Material>();
+	public static boolean upToDate;
+	public static Update update;
 
 	@Override
 	public void onEnable() {
@@ -47,6 +49,13 @@ public class Main extends JavaPlugin {
 		}
 		arena = new Arena();
 		arena.load();
+		update = new Update();
+		try {
+			update.load();
+			update.update(Bukkit.getConsoleSender());
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 
 		Bukkit.getConsoleSender().sendMessage(ChatColor.GREEN + "Successfully started FFARush.");
 	}
