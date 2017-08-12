@@ -22,13 +22,18 @@ public class Commandffarush implements CommandExecutor {
 
 	@Override
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
+		if (sender instanceof Player && args.length == 1)
+			if (args[0].equals("join")) {
+				Main.arena.addPlayer((Player) sender);
+			}
+		if (args.length == 0) {
+			sender.sendMessage("FFARush v" + Main.version + " build " + Main.build + " by Paulao17. Visit my website : " + Main.website);
+			sender.sendMessage("For information about the use of this command, try /ffarush help");
+		}
 		if (sender.isOp()) {
 			if (sender instanceof Player) {
 				Player p = (Player) sender;
-				if (args.length == 0) {
-					sender.sendMessage("FFARush v" + Main.version + " build " + Main.build + " by Paulao17. Visit my website : " + Main.website);
-					sender.sendMessage("For information about the use of this command, try /ffarush help");
-				} else if (args.length == 1) {
+				  if (args.length == 1) {
 					if (args[0].equals("help")) {
 						sender.sendMessage("FFARush help page :");
 					}
@@ -93,9 +98,6 @@ public class Commandffarush implements CommandExecutor {
 							e.printStackTrace();
 						}
 						p.sendMessage("Inventory saved to file.");
-					}
-					if (args[0].equals("join")) {
-						Main.arena.addPlayer(p);
 					}
 				} else if (args.length == 2) {
 					if (args[0].equals("addloc")) {
