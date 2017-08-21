@@ -30,3 +30,6 @@ leaveCmd : lobby
 
 # [Long] After how many ticks the blocks specified in the Blocks.yml are removed. Default is 600.
 blockremove : 600
+
+# [Boolean] Wether on player death the drops should be removed. Default is true.
+dropsRemoved : true
