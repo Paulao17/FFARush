@@ -38,10 +38,10 @@ public class Arena {
 		if (locs.contains(target)) {
 			p.teleport((Location)locs.get(target));
 			PlayerInventory pi = p.getInventory();
-			Inventory targetinv = Main.inventory;
+			Inventory targetinv = ConfigManager.inventory;
 			pi.clear();
 			pi.setContents(targetinv.getContents());
-			MemorySection m = Main.armor;
+			MemorySection m = ConfigManager.armor;
 			pi.setHelmet(m.getItemStack("h"));
 			pi.setChestplate(m.getItemStack("c"));
 			pi.setLeggings(m.getItemStack("l"));

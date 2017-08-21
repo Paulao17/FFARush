@@ -39,29 +39,21 @@ public class Commandffarush implements CommandExecutor {
 					}
 					if (args[0].equals("reload")) {
 						sender.sendMessage("Reloading config");
-						try {
-							Main.instance.configProcedure();
-						} catch (IOException e) {
-							e.printStackTrace();
-						}
+						Main.conf.load(Main.instance);
 					}
 					if (args[0].equals("setlobby")) {
 						if (p.getLocation().getWorld().equals(Bukkit.getWorld("FFARush"))) {
 							sender.sendMessage("Setting lobby location");
 							Main.instance.getConfig().set("lobbyloc", p.getLocation());
 							Main.instance.saveConfig();
-							try {
-								Main.instance.configProcedure();
-							} catch (IOException e) {
-								e.printStackTrace();
-							}
+							ConfigManager.conf.set("lobbyloc", p.getLocation());
 						} else
 							p.sendMessage("Wrong world. Use the following to get to the FFARush world : /ffarush tp");
 					}
 					if (args[0].equals("lobby")) {
-						if (!Main.conf.get("lobbyloc").equals("null")) {
+						if (!ConfigManager.conf.get("lobbyloc").equals("null")) {
 							sender.sendMessage("teleporting to lobby");
-							p.teleport((Location) Main.conf.get("lobbyloc"));
+							p.teleport((Location) ConfigManager.conf.get("lobbyloc"));
 						} else
 							p.sendMessage("Lobby has not been set!");
 					}
@@ -92,11 +84,7 @@ public class Commandffarush implements CommandExecutor {
 						} catch (IOException e) {
 							e.printStackTrace();
 						}
-						try {
-							Main.instance.configProcedure();
-						} catch (IOException e) {
-							e.printStackTrace();
-						}
+						Main.conf.load(Main.instance);
 						p.sendMessage("Inventory saved to file.");
 					}
 				} else if (args.length == 2) {
